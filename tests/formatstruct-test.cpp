@@ -1,11 +1,6 @@
-# formatstruct
+#include "UnitTest.h"
+#include <formatstruct.h>
 
-[![Build](https://github.com/zjgoggle/formatstruct/actions/workflows/build-test.yml/badge.svg)](https://github.com/zjgoggle/formatstruct/actions)
-[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://github.com/zjgoggle/formatstruct)
-
-Single header file to auto detect struct fields and format into json. See exmaples.
-
-```C++
 
 enum class Color
 {
@@ -105,5 +100,3 @@ TEST_CASE( "formatstruct - bitfield, pointer" )
     res = R"( { "id" : "id1" , "name" : "John" , "account" :  { "hasAccount" : 1 , "flags" : 3 , "amount" : 100 }  , "friends" :  [  { "id" : "id2" , "name" : "Bob" , "account" :  { "amount" : 0 }  , "friends" :  [  ]  }  ,  { "id" : "id3" , "name" : "Alice" , "account" :  { "hasAccount" : 1 , "flags" : 1 , "amount" : 300 }  , "friends" :  [  ]  }  ]  } )";
     CHECK_EQ( res, jz::stringify_struct( a ) );
 }
-
-```
